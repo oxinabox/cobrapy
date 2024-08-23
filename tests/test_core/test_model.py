@@ -489,9 +489,9 @@ def test_add_existing_boundary(
         The allowed types for boundary, see add_boundary() for types.
     """
     for metabolite in metabolites:
-        model.add_boundary(metabolite, reaction_type)
-        with pytest.raises(ValueError):
-            model.add_boundary(metabolite, reaction_type)
+        rxn_added = model.add_boundary(metabolite, reaction_type)
+        rxn_dup = model.add_boundary(metabolite, reaction_type)
+        assert rxn_dup is rxn_added
 
 
 @pytest.mark.parametrize("solver", optlang_solvers)

@@ -676,7 +676,8 @@ class Model(Object):
                 "identifier. Please set the `reaction_id`."
             )
         if reaction_id in self.reactions:
-            raise ValueError(f"Boundary reaction '{reaction_id}' already exists.")
+            # It already exists so just retrieve it.
+            return self.reactions.get_by_id(reaction_id)
         name = f"{metabolite.name} {type}"
         rxn = Reaction(id=reaction_id, name=name, lower_bound=lb, upper_bound=ub)
         rxn.add_metabolites({metabolite: -1})
