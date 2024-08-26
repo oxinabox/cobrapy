@@ -677,6 +677,7 @@ class Model(Object):
             )
         if reaction_id in self.reactions:
             # It already exists so just retrieve it.
+            logger.info(f"Boundary reaction '{reaction_id}' already exists.")
             return self.reactions.get_by_id(reaction_id)
         name = f"{metabolite.name} {type}"
         rxn = Reaction(id=reaction_id, name=name, lower_bound=lb, upper_bound=ub)
