@@ -6,6 +6,9 @@
 
 Fixes failures of GPR.copy() in Python 3.13.
 
+Fix compartment not being stored for metabolites created during
+reaction.build_reaction_from_string
+
 ## Other
 
 ## Deprecated features
