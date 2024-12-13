@@ -380,6 +380,18 @@ def test_build_from_string(model: Model) -> None:
         assert pgi.bounds == (0, 1000)
 
 
+def test_build_from_string_creating_metabolites() -> None:
+    # https://github.com/opencobra/cobrapy/issues/1418
+    model = Model()
+    reaction = Reaction("R1")
+    model.add_reactions([reaction])
+    reaction.build_reaction_from_string("[c]: a --> b")
+    assert len(model.metabolites) == 2
+    assert model.metabolites.a.compartment == "c"
+    assert model.metabolites.b.compartment == "c"
+    assert model.reaction.R1.compartments == set(["c"])
+
+
 def test_bounds_setter(model: Model) -> None:
     """Test reaction bounds setter."""
     rxn = model.reactions.get_by_id("PGI")

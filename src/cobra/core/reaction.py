@@ -1615,7 +1615,7 @@ class Reaction(Object):
                 except KeyError:
                     if verbose:
                         print(f"unknown metabolite '{met_id}' created")
-                    met = Metabolite(met_id)
+                    met = Metabolite(met_id, compartment=compartment or None)
                 self.add_metabolites({met: num})
 
     def summary(
