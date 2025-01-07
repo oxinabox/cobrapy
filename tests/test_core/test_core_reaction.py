@@ -388,9 +388,9 @@ def test_build_from_string_creating_metabolites() -> None:
     model.add_reactions([reaction])
     reaction.build_reaction_from_string("[c]: a --> b")
     assert len(model.metabolites) == 2
-    assert model.metabolites.a.compartment == "c"
-    assert model.metabolites.b.compartment == "c"
-    assert model.reaction.R1.compartments == set(["c"])
+    assert model.metabolites.get_by_id("a[c]").compartment == "c"
+    assert model.metabolites.get_by_id("b[c]").compartment == "c"
+    assert model.reactions.R1.compartments == set(["c"])
 
 
 def test_bounds_setter(model: Model) -> None:
