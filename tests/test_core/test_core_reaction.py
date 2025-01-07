@@ -381,6 +381,7 @@ def test_build_from_string(model: Model) -> None:
 
 
 def test_build_from_string_creating_metabolites() -> None:
+    """Test that metabolites are created in the correct compartment."""
     # https://github.com/opencobra/cobrapy/issues/1418
     model = Model()
     reaction = Reaction("R1")
