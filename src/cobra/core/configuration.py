@@ -168,7 +168,7 @@ class Configuration(metaclass=Singleton):
 
         """
         self._cache_directory = pathlib.Path(path)
-        self._cache_directory.mkdir(parents=True, exists_ok=True)
+        self._cache_directory.mkdir(parents=True, exist_ok=True)
 
     def __repr__(self) -> str:
         """Return a string representation of the current configuration values."""
