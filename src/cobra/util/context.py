@@ -79,7 +79,7 @@ def get_context(obj: "Object") -> Optional[HistoryManager]:
         pass
 
 
-F = TypeVar('F', bound=Callable)
+F = TypeVar("F", bound=Callable)
 
 def resettable(func: F) -> F:
     """
