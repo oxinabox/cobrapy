@@ -1,7 +1,7 @@
 """Context manager for the package."""
 
 from functools import partial
-from typing import TYPE_CHECKING, Any, Callable, Optional
+from typing import TYPE_CHECKING, Any, Callable, Optional, TypeVar
 
 
 if TYPE_CHECKING:
@@ -80,6 +80,7 @@ def get_context(obj: "Object") -> Optional[HistoryManager]:
 
 
 F = TypeVar("F", bound=Callable)
+
 
 def resettable(func: F) -> F:
     """
