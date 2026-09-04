@@ -79,7 +79,9 @@ def get_context(obj: "Object") -> Optional[HistoryManager]:
         pass
 
 
-def resettable(func: Callable[[Any], Any]) -> Callable[[Any], Any]:
+F = TypeVar('F', bound=Callable)
+
+def resettable(func: F) -> F:
     """
     Simplify the context management of simple object attributes.
 
